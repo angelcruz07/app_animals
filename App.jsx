@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { Animals } from './src/components/app/Animals'
 import { NativeRouter, Navigate, Route, Routes } from 'react-router-native'
 import { AppBar } from './src/components/ui/AppBar'
+import { Letters } from './src/components/app/Letters'
 
 export default function App() {
 	return (
@@ -9,10 +10,7 @@ export default function App() {
 			<NativeRouter>
 				<Routes>
 					<Route path='/' element={<Animals />} />
-					<Route
-						path='/letras'
-						element={<Text>Vete a la verga lizandro</Text>}
-					/>
+					<Route path='/letras' element={<Letters />} />
 					<Route path='*' element={<Navigate to='/' />} />
 				</Routes>
 				<AppBar />

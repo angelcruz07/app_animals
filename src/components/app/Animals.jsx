@@ -1,39 +1,42 @@
 import React from 'react'
-import { View, StyleSheet, Image, Button } from 'react-native'
+import { ScrollView, View, StyleSheet, Image, Button } from 'react-native'
 import { Audio } from 'expo-av'
+import { useState, useEffect } from 'react'
 
 const ANIMALS = {
 	lion: {
-		img: '../../../assets/lion.jpg',
+		img: require('../../../assets/lion.jpg'),
 		sound: ''
 	},
 	ant: {
-		img: '../../../assets/lion.jpg',
+		img: require('../../../assets/ANT.png'),
 		sound: ''
 	},
 	bear: {
-		img: '../../../assets/lion.jpg',
+		img: require('../../../assets/BEAR.png'),
 		sound: ''
 	},
 	cow: {
-		img: '../../../assets/lion.jpg',
+		img: require('../../../assets/COW.png'),
 		sound: ''
 	},
 	horse: {
-		img: '../../../assets/lion.jpg',
+		img: require('../../../assets/HOURSE.png'),
 		sound: ''
 	}
 }
 
 export const Animals = () => {
-	const [sound, setSound] = useState()
+	// const [sound, setSound] = useState()
+
 	// async function playSong() {
 	// 	console.log('Loading Sound')
-	// 	const { sound } = await Audio.Sound.Sound.createAsync(require(''))
+	// 	const { sound } = await Audio.Sound.createAsync(require(''))
 
 	// 	setSound(sound)
 	// 	await sound.playAsync()
 	// }
+
 	// useEffect(() => {
 	// 	return sound
 	// 		? () => {
@@ -43,14 +46,16 @@ export const Animals = () => {
 	// }, [sound])
 
 	return (
-		<View style={styles.container}>
-			{ANIMALS.map((animal) => (
-				<View key={index}>
-					<Image source={animal.img} style={{ width: 200, height: 250 }} />
-					<Button title='Escuchar' />
-				</View>
-			))}
-		</View>
+		<ScrollView>
+			<View style={styles.container}>
+				{Object.entries(ANIMALS).map(([key, animal], index) => (
+					<View key={key}>
+						<Image source={animal.img} style={{ width: 200, height: 200 }} />
+						<Button title='Escuchar' />
+					</View>
+				))}
+			</View>
+		</ScrollView>
 	)
 }
 
@@ -59,6 +64,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: '#fff',
 		alignItems: 'center',
-		justifyContent: 'center'
+		justifyContent: 'center',
+		width: 200
 	}
 })
