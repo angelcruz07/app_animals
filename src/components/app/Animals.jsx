@@ -6,52 +6,52 @@ import { useState, useEffect } from 'react'
 const ANIMALS = {
 	lion: {
 		img: require('../../../assets/lion.jpg'),
-		sound: ''
+		sound: '../../../assets/sound/'
 	},
 	ant: {
 		img: require('../../../assets/ANT.png'),
-		sound: ''
+		sound: '../../../assets/sound/'
 	},
 	bear: {
 		img: require('../../../assets/BEAR.png'),
-		sound: ''
+		sound: '../../../assets/sound/'
 	},
 	cow: {
 		img: require('../../../assets/COW.png'),
-		sound: ''
+		sound: '../../../assets/sound/'
 	},
 	horse: {
 		img: require('../../../assets/HOURSE.png'),
-		sound: ''
+		sound: '../../../assets/sound/'
 	}
 }
 
 export const Animals = () => {
-	// const [sound, setSound] = useState()
+	const [sound, setSound] = useState()
 
-	// async function playSong() {
-	// 	console.log('Loading Sound')
-	// 	const { sound } = await Audio.Sound.createAsync(require(''))
+	async function playSong(soundAnimal) {
+		console.log('Loading Sound')
+		const { sound } = await Audio.Sound.createAsync(require(soundAnimal))
 
-	// 	setSound(sound)
-	// 	await sound.playAsync()
-	// }
+		setSound(sound)
+		await sound.playAsync()
+	}
 
-	// useEffect(() => {
-	// 	return sound
-	// 		? () => {
-	// 				sound.unloadAsync()
-	// 		  }
-	// 		: undefined
-	// }, [sound])
+	useEffect(() => {
+		return sound
+			? () => {
+					sound.unloadAsync()
+			  }
+			: undefined
+	}, [sound])
 
 	return (
-		<ScrollView>
-			<View style={styles.container}>
+		<ScrollView style={styles.container}>
+			<View>
 				{Object.entries(ANIMALS).map(([key, animal], index) => (
 					<View key={key}>
 						<Image source={animal.img} style={{ width: 200, height: 200 }} />
-						<Button title='Escuchar' />
+						<Button title='Escuchar' onPress={() => playSong(animal.sound)} />
 					</View>
 				))}
 			</View>
