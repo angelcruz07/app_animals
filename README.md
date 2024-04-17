@@ -1,7 +1,12 @@
 # Documentación del proyecto App Animals and alphabet 
  
 # Visualización del proyecto
-<img src="https://upload.vectorlogo.zone/logos/reactjs/images/fded6be6-fa10-4d14-801f-e5772ad64b05.svg"> 
+
+## Animales y letra
+![Animals](./assets/img/letterspage.png)
+
+## Animales y Sonido
+![Animals](./assets/img/animalespage.png)
  
 # Uso del proyecto 
 Clona o descarga el proyecto 
