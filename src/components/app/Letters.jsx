@@ -1,16 +1,39 @@
-import { View, Text, StyleSheet, FlatList } from 'react-native'
+import {View, Text, StyleSheet, FlatList, Image, TouchableOpacity} from 'react-native'
 import Alphabet from '../../data/letters'
+import { Audio } from 'expo-av'
+import { useEffect, useState } from "react";
 
 export const Letters = () => {
+	const [sound, setSound] = useState()
+	const playSong = async (soundAnimal) => {
+		const { sound } = await Audio.Sound.createAsync(soundAnimal)
+
+		setSound(sound)
+		await sound.playAsync()
+	}
+	useEffect(() => {
+		return sound
+			? () => {
+				sound.unloadAsync()
+			}
+			: undefined
+	}, [sound])
+
+
 	return (
 		<View style={styles.container}>
 			<FlatList
 				data={Alphabet}
 				keyExtractor={(item) => item.letter}
 				renderItem={({ item: letter }) => (
-					<View style={styles.cardLetter}>
+					<TouchableOpacity
+						style={styles.cardLetter}
+						onPress={() => playSong(letter.sound)}
+					>
 						<Text style={styles.letter}>{letter.letter}</Text>
-					</View>
+						<Image source={letter.animalImage} style={{ width: 120, height: 120 }} />
+						<Text style={styles.textAnimal}>{letter.animals}</Text>
+					</TouchableOpacity>
 				)}
 			/>
 		</View>
@@ -22,9 +45,9 @@ const styles = StyleSheet.create({
 		marginTop: 100
 	},
 	cardLetter: {
-		backgroundColor: '#107E7D',
-		width: 200,
-		height: 200,
+		backgroundColor: '#fff',
+		width: 250,
+		height: 300,
 		justifyContent: 'center',
 		alignItems: 'center',
 		marginTop: 10,
@@ -32,7 +55,11 @@ const styles = StyleSheet.create({
 	},
 	letter: {
 		fontWeight: 'bold',
-		color: '#fff',
+		color: '#000',
 		fontSize: 80
+	},
+	textAnimal: {
+		fontSize: 20
+
 	}
 })
