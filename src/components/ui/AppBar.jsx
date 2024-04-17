@@ -6,7 +6,7 @@ const AppBarTab = ({ to, text }) => {
 	const { pathname } = useLocation()
 
 	return (
-		<TouchableOpacity activeOpacity={1}>
+		<TouchableOpacity activeOpacity={1} style={styles.touchNav}>
 			<Link to={to}>
 				<View>
 					<Text style={{ color: '#fff' }}>{text}</Text>
@@ -27,7 +27,7 @@ export const AppBar = () => {
 
 const styles = StyleSheet.create({
 	appBar: {
-		backgroundColor: '#000',
+		backgroundColor: '#107E7D',
 		position: 'absolute',
 		height: 80,
 		padding: 10,
@@ -39,5 +39,10 @@ const styles = StyleSheet.create({
 	},
 	textNav: {
 		color: '#000'
+	},
+	touchNav: {
+		marginTop: 25,
+		padding: 5,
+		borderRadius: 5
 	}
 })
