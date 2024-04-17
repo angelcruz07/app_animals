@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { Animals } from './src/components/app/Animals'
 import { NativeRouter, Navigate, Route, Routes } from 'react-router-native'
 import { AppBar } from './src/components/ui/AppBar'

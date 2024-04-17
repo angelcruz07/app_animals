@@ -1,15 +1,13 @@
 import React from 'react'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
-import { useLocation, Link } from 'react-router-native'
+import { Link } from 'react-router-native'
 
 const AppBarTab = ({ to, text }) => {
-	const { pathname } = useLocation()
-
 	return (
 		<TouchableOpacity activeOpacity={1} style={styles.touchNav}>
 			<Link to={to}>
 				<View>
-					<Text style={{ color: '#fff' }}>{text}</Text>
+					<Text style={styles.textNav}>{text}</Text>
 				</View>
 			</Link>
 		</TouchableOpacity>
@@ -44,5 +42,10 @@ const styles = StyleSheet.create({
 		marginTop: 25,
 		padding: 5,
 		borderRadius: 5
+	},
+	textNav: {
+		fontSize: 15,
+		fontWeight: 'bold',
+		color: '#FFF'
 	}
 })
