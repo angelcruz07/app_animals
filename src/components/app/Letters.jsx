@@ -42,7 +42,8 @@ export const Letters = () => {
 
 const styles = StyleSheet.create({
 	container: {
-		marginTop: 100
+		marginTop: 100,
+		marginBottom: 20
 	},
 	cardLetter: {
 		backgroundColor: '#fff',
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
 		fontSize: 80
 	},
 	textAnimal: {
-		fontSize: 20
-
+		fontSize: 20,
+		fontWeight: 'bold',
 	}
 })

@@ -1,30 +1,8 @@
 import React from 'react'
-import { FlatList, View, StyleSheet, Image, Button } from 'react-native'
+import {FlatList, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
 import { Audio } from 'expo-av'
+import ANIMALS from '../../data/animals'
 import { useState, useEffect } from 'react'
-
-const ANIMALS = {
-	lion: {
-		img: require('../../../assets/lion.jpg'),
-		sound: require('../../../assets/sound/lion.mp3')
-	},
-	ant: {
-		img: require('../../../assets/ANT.png'),
-		sound: require('../../../assets/sound/ant.mp3')
-	},
-	bear: {
-		img: require('../../../assets/BEAR.png'),
-		sound: require('../../../assets/sound/bear.mp3')
-	},
-	cow: {
-		img: require('../../../assets/COW.png'),
-		sound: require('../../../assets/sound/cow.mp3')
-	},
-	horse: {
-		img: require('../../../assets/HOURSE.png'),
-		sound: require('../../../assets/sound/hourse.mp3')
-	}
-}
 
 export const Animals = () => {
 	const [sound, setSound] = useState()
@@ -51,25 +29,36 @@ export const Animals = () => {
 	return (
 		<FlatList
 			data={animalsArray}
+			style={{ marginTop: 100, marginBottom: 20 }}
 			keyExtractor={(item) => item.key}
 			renderItem={({ item: animal }) => (
-				<View style={styles.container}>
+				<TouchableOpacity
+					style={styles.containerAnimal}
+					onPress={() => playSong(animal.sound)}
+				>
 					<Image source={animal.img} style={{ width: 120, height: 120 }} />
-					<Button title='Escuchar' onPress={() => playSong(animal.sound)} />
-				</View>
+					<Text style={styles.textAnimal}>{animal.name}</Text>
+				</TouchableOpacity>
 			)}
 		/>
 	)
 }
 
 const styles = StyleSheet.create({
-	container: {
+	containerAnimal: {
 		flex: 1,
 		backgroundColor: '#FFF',
 		alignItems: 'center',
 		justifyContent: 'center',
-		width: 200,
-		marginTop: 80,
-		padding: 30
+		width: 250,
+		height: 300,
+		marginTop: 15,
+		padding: 30,
+		borderRadius: 10
+	},
+	textAnimal: {
+		fontSize: 20,
+		fontWeight: 'bold',
+		marginTop: 10
 	}
 })

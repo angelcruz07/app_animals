@@ -44,8 +44,8 @@ const Alphabet = [
 	{
 		letter: 'H',
 		sound: require('../../assets/sound/h.mp3'),
-		animals: '',
-		animalImage: require('../../assets/img/serpiente.png')
+		animals: 'Hormiga',
+		animalImage: require('../../assets/img/hormiga.png')
 	},
 	{
 		letter: 'I',
@@ -116,14 +116,14 @@ const Alphabet = [
 	{
 		letter: 'T',
 		sound: require('../../assets/sound/t.mp3'),
-		animals: '',
-		animalImage: require('../../assets/img/serpiente.png')
+		animals: 'Tigre',
+		animalImage: require('../../assets/img/tigre.jpg')
 	},
 	{
 		letter: 'U',
 		sound: require('../../assets/sound/u.mp3'),
-		animals: '',
-		animalImage: require('../../assets/img/serpiente.png')
+		animals: 'Unicornio',
+		animalImage: require('../../assets/img/unicornio.png')
 	},
 	{
 		letter: 'V',

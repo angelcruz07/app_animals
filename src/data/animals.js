@@ -1,22 +1,27 @@
 const ANIMALS = {
     lion: {
-        img: require('../../assets/lion.jpg'),
+        name: "Leon",
+        img: require('../../assets/img/leon.png'),
         sound: require('../../assets/sound/lion.mp3')
     },
     ant: {
-        img: require('../../assets/ANT.png'),
+        name: 'Araña',
+        img: require('../../assets/img/araña.png'),
         sound: require('../../assets/sound/ant.mp3')
     },
     bear: {
-        img: require('../../assets/BEAR.png'),
+        name: 'Oso',
+        img: require('../../assets/img/oso.png'),
         sound: require('../../assets/sound/bear.mp3')
     },
     cow: {
-        img: require('../../assets/COW.png'),
+        name: 'Vaca',
+        img: require('../../assets/img/vaca.png'),
         sound: require('../../assets/sound/cow.mp3')
     },
     horse: {
-        img: require('../../assets/HOURSE.png'),
+        name: 'Caballo',
+        img: require('../../assets/img/caballo.png'),
         sound: require('../../assets/sound/hourse.mp3')
     }
 }
